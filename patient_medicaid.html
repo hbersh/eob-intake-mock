@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patient Intake – Carlos Rivera</title>
+  assets/style.css
+  assets/app.js</script>
+</head>
+<body>
+
+<header>
+  <h1>Carlos Rivera – Intake Review</h1>
+
+  <div class="banner" style="background:#e8f7ee;">
+    🟩 Medicaid Detected
+    <span class="info">ⓘ</span>
+    <div class="popover">
+      <ul>
+        class="doc-tabs">        <li>Payer: Molina Healthcare</li>
+      <button class="tab active" onclick="switchDoc(this,'eob')">EOB</button>
+      <button class="tab" onclick="switchDoc(this,'card')">Insurance Card</button>
+    </div>
+
+    <div class="viewer">
+
+      <!-- EOB -->
+      <div class="doc-layer active" id="doc-eob">
+        assets/docs/sample_eob_medicaid_molina.png
+
+        <div class="overlay high clickable"
+          style="top:120px; left:80px; width:260px; height:36px;"
+          onclick="showExplainer('patient_name')">Patient Name</div>
+
+        <div class="overlay high clickable"
+          style="top:165px; left:80px; width:220px; height:36px;"
+          onclick="showExplainer('member_id')">Member ID</div>
+
+        <div class="overlay high clickable"
+          style="top:255px; left:80px; width:200px; height:36px;"
+          onclick="showExplainer('paid_amount')">Paid Amount</div>
+      </div>
+
+      <!-- INSURANCE CARD -->
+      <div class="doc-layer" id="doc-card">
+        assets/docs/insurance_card_medicaid_front.png
+
+        <div class="overlay high clickable"
+          style="top:140px; left:60px; width:240px; height:36px;"
+          onclick="showExplainer('member_id')">Member ID</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right">
+    <h3>Auto‑Filled Intake</h3>
+
+    <div class="field high" onclick="showExplainer('patient_name')">
+      <label>Patient Name</label>
+      <input value="Carlos Rivera">
+    </div>
+
+    <div class="field high" onclick="showExplainer('member_id')">
+      <label>Member ID</label>
+      <input value="123456789IL">
+    </div>
+
+    <div class="field high" onclick="showExplainer('paid_amount')">
+      <label>Paid Amount</label>
+      <input value="$310.00">
+    </div>
+
+    <div class="field high">
+      <label>Patient Responsibility</label>
+      <input value="$0.00">
+    </div>
+
+    <div class="checklist">
+      <ul>
+        <li class="ok">Patient Info Complete</li>
+        <li class="ok">Payer Identified</li>
+        <li class="ok">All Documents Present</li>
+      </ul>
+      <button>Submit & Lock</button>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
+        <li>Program: Illinois Medicaid</li>
+        <li>PCN contains “MCAID”</li>
+        <li>$0 patient responsibility</li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- LEFT PANEL -->
+  <div class="left">
+    <h3>Documents</h3>
+
+    assets/docs/sample_eob_medicaid_molina.pdf⬇ Download Original PDF</a>
+
