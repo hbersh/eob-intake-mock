@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patient Intake – John Smith</title>
+  assets/style.css
+  assets/app.js</script>
+</head>
+<body>
+
+<header>
+  <h1>John Smith – Intake Review</h1>
+
+  <div class="banner">
+    🟦 Medicare Advantage Detected
+    <span class="info">ⓘ</span>
+    <div class="popover">
+      <ul>
+        <li>Age ≥ 65</li>
+        <li>Member ID starts with H</li>
+        <li>Adjustment Code 253</li>
+        <li>Payer: Humana Medicare Advantage</li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- LEFT PANEL -->
+  <div class="left">
+    <h3>Documents</h3>
+
+    <!-- Tab-aware Download Link -->
+    assets/docs/sample_eob_humana.pdf⬇ Download Original PDF</a>
+
+    <div class="doc-tabs">
+      <button class="tab active" onclick="switchDoc(this,'eob')">EOB</button>
+      <button class="tab" onclick="switchDoc(this,'era')">ERA</button>
+      <button class="tab" onclick="switchDoc(this,'card')">Insurance Card</button>
+    </div>
+
+    <div class="viewer">
+
+      <!-- EOB -->
+      <div class="doc-layer active" id="doc-eob">
+        assets/docs/sample_eob_humana.png
+
+        <div class="overlay high clickable"
+          style="top:120px; left:80px; width:260px; height:36px;"
+          onclick="showExplainer('patient_name')">Patient Name</div>
+
+        <div class="overlay high clickable"
+          style="top:165px; left:80px; width:220px; height:36px;"
+          onclick="showExplainer('member_id')">Member ID</div>
+
+        <div class="overlay medium clickable"
+          style="top:255px; left:80px; width:200px; height:36px;"
+          onclick="showExplainer('paid_amount')">Paid Amount</div>
+      </div>
+
+      <!-- ERA -->
+      <div class="doc-layer" id="doc-era">
+        assets/docs/sample_era_mismatch.png
+
+        <div class="overlay low clickable"
+          style="top:220px; left:90px; width:260px; height:36px;"
+          onclick="showExplainer('era_denial')">ERA Denial</div>
+      </div>
+
+      <!-- INSURANCE CARD -->
+      <div class="doc-layer" id="doc-card">
+        assets/docs/insurance_card_front.png
+
+        <div class="overlay high clickable"
+          style="top:140px; left:60px; width:240px; height:36px;"
+          onclick="showExplainer('member_id')">Member ID</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right">
+    <h3>Auto‑Filled Intake</h3>
+
+    <div class="field high" onclick="showExplainer('patient_name')">
+      <label>Patient Name</label>
+      <input value="John Smith">
+    </div>
+
+    <div class="field high" onclick="showExplainer('member_id')">
+      <label>Member ID</label>
+      <input value="H12345678">
+    </div>
+
+    <div class="field medium" onclick="showExplainer('paid_amount')">
+      <label>Paid Amount</label>
+      <input value="$150.00">
+    </div>
+
+    <div class="field low" onclick="showExplainer('insurance_card_back')">
+      <label>Insurance Card (Back)</label>
+      <input placeholder="Missing">
+    </div>
+
+    <!-- WHY DENIED -->
+    <div class="denial">
+      <h4>❌ Why Was This Claim Denied?</h4>
+      <ul>
+        <li>ERA Paid Amount = $0.00</li>
+        <li>CARC 16 – Missing documentation</li>
+        <li>Insurance card back not uploaded</li>
+      </ul>
+    </div>
+
+    <!-- EXPLAINER PANEL -->
+    <div id="explainer" class="explainer hidden"></div>
+
+    <!-- CHECKLIST -->
+    <div class="checklist">
+      <ul>
+        <li class="ok">Patient Info Complete</li>
+        <li class="ok">Payer Identified</li>
+        <li class="warn">Insurance Card Missing</li>
+      </ul>
+      <button disabled>Submit & Lock</button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
